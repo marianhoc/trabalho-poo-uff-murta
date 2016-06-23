@@ -15,18 +15,9 @@ public class TestCodigo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here TEST
+
         
-       
-        
-        
-        
-        
-        
-       
-        
-        //otro test
-        
+        TelaPrincipal.imprimeTela();
         
         
     }
