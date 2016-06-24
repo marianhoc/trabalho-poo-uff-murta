@@ -5,6 +5,8 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,29 +15,50 @@ import javax.swing.JPanel;
  *
  * @author copes
  */
-public class TelaPrincipal {
+public class TelaPrincipal extends JFrame{
+
+    public TelaPrincipal() {
+        super("Mercadinho");
+        imprimeTelaInicio();
+    }
     
-    
-    
-    
-    
-    public static void imprimeTela(){
-        //FRAME PRINCIPAL
-        JFrame framePrincipal = new JFrame("Supermercado da UFF");
+    /**
+     * Imprime a tela de trabalho do Manager
+     */
+    public void imprimeTelaManager(){
         
-        //MAIN PANEL
-        JPanel painel = new JPanel();
+    }
+    
+    /**
+     * TODO *******
+     */
+    public void imprimeTelaCaixa(){
+        
+    }
+    
+    public void imprimeTelaInicio(){
+        //FRAME PRINCIPAL
+        
+        
+        // PAINEL
+        JPanel painelEsquerda = new JPanel();
         
         // BUTTONS 
         JButton test = new JButton("Click here");
         
         
-        framePrincipal.add(test);
         
         
-        framePrincipal.pack();
-        framePrincipal.setVisible(true);
-                
+        
+        
+        
+        
+        // Configuration a janela
+        this.pack();
+        this.setSize(800, 600);
+        this.setBackground(Color.yellow);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
         
     }
 }

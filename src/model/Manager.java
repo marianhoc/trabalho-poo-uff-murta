@@ -10,7 +10,7 @@ package model;
  *
  * @author copes
  */
-public class Manager extends Funcionario {
+public class Manager {
     
     
    
