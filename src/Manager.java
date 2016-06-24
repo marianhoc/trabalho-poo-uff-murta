@@ -8,10 +8,9 @@
  *
  * @author copes
  */
-public class Funcionario {
-    private String nome;
-    private String sobrenome;
-    private String cpf;
+public class Manager extends Funcionario {
     
+    
+   
     
 }

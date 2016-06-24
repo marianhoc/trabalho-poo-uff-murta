@@ -18,4 +18,6 @@ public class Venda {
     private int valorEntregue;
     
     
+    
+    
 }

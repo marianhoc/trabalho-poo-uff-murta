@@ -8,7 +8,7 @@
  *
  * @author copes
  */
-public class Item extends Produtos{
-    private int quantidade;
-    
+public class Item extends Produtos{ // 1 item numa venda pode ser 
+    private int quantidade;         // 3 pacotes de cafe 
+    private int valor;              // 
 }
