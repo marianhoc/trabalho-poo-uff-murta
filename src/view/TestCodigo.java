@@ -19,7 +19,7 @@ public class TestCodigo {
      */
     public static void main(String[] args) {
 
-        //=================== FUNCIONARIOS
+        //=================== FUNCIONARIOS ==========================
         Funcionario funcionario1 = new Funcionario("Mariano", "Copes", "123456", false);
         Funcionario funcionario2 = new Funcionario("Leonardo", "Potugal", "987654", false);
         Funcionario funcionario3 = new Funcionario("Evandro", "naosei", "111111", false);

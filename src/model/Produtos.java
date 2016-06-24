@@ -15,7 +15,7 @@ public class Produtos {
     private String nome;
     private int valorUnitario;  // em centavos
     private String marca;
-    private String tamanho;       // quantidade  exemplo  300   500 
+    private String tamanho;       // quantidade  exemplo  300   500   // DUVIDAS  como nomear o tamanho
     private String unidadeMedida; // de que ??             ml   gr
 
     

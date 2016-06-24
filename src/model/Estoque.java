@@ -15,9 +15,9 @@ public class Estoque extends Item{
     
     private Item [] produtos;
 
-    //
-    //setters and getters
-    //
+    // =====================
+    // ===  setters and getters
+    // ======================
     
     public Item[] getProdutos() {
         return produtos;
@@ -27,9 +27,9 @@ public class Estoque extends Item{
         this.produtos = produtos;
     }
 
-    // ======== END OF
-    //setters and getters
-    //============================ 
+    //=================== END OF =======================
+    //============= setters and getters ================
+    //================================================== 
    
     
     
@@ -42,8 +42,8 @@ public class Estoque extends Item{
         
     }
     
-    public void descontarProdutosVendidos(Item[] produtosVendidos){
-        ;
+    public void descontarProdutosVendidos(Venda produtosVendidos){
+    
     }
     
     
