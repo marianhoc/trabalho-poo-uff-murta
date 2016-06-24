@@ -27,13 +27,15 @@ public class TestCodigo {
         Funcionario funcionario5 = new Funcionario("Caio2", "asdfghj", "333333", false);
         Funcionario funcionario6 = new Funcionario("Leonardo", "Murta", "555555", true);
         
-        // ============= CAIXAS
+        // ===================== CAIXAS ===================
         
         Caixa caixa1 = new Caixa(1);
         Caixa caixa2 = new Caixa(2);
         Caixa caixa3 = new Caixa(3);
         
         
+        
+        //wertyui
         
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
