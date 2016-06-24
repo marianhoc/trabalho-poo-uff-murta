@@ -1,3 +1,5 @@
+package model;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +10,10 @@
  *
  * @author copes
  */
-public class Item extends Produtos{ // 1 item numa venda pode ser 
-    private int quantidade;         // 3 pacotes de cafe 
-    private int valor;              // 
+public class Funcionario {
+    private String nome;
+    private String sobrenome;
+    private String cpf;
+    
+    
 }

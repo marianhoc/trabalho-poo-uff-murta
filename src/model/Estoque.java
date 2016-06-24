@@ -1,27 +1,29 @@
+package model;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testcodigo;
+
 
 /**
  *
  * @author copes
  */
-public class TestCodigo {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-
-        
-        TelaPrincipal.imprimeTela();
-        
-        //qwertyiuo
-        
+public class Estoque extends Item{
+    
+    private Item [] produtos;
+    
+    
+    
+    public void atualizarEstoque(){
         
     }
+    public void consultarEstoque(){
+        
+    }
+    
+    
     
 }
