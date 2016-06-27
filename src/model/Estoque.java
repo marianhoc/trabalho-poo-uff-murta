@@ -66,3 +66,10 @@ public class Estoque extends Item{
     
     
 }
+
+
+DUVIDAS
+        
+ESTOQUE e classe??
+classe manager..  e neccesaria?? ou com o atributo de funcionario resole??
+

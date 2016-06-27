@@ -15,9 +15,9 @@ public class Venda {
     private String cpfFuncionario;
     private Item [] listoDeItens;
     private int quantidadeProdutos;
-    private int total;
+    private int total;    
     private String formaDePagamento;
-    private int valorEntregue;
+    private int valorEntregue;  // trocado? 
 
     
     //====================================================
