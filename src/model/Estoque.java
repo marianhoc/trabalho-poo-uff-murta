@@ -42,7 +42,7 @@ public class Estoque extends Item{
     
     }
     
-    public void criarEstoque(){
+    public static void criarEstoque(){
         ArrayList<Item> estoque = new ArrayList<>();        
  
         estoque.add(new Item(50, "1234", "cafe", 550, "pilao", 500, "gr"));

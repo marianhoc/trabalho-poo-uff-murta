@@ -6,6 +6,7 @@
 package view;
 
 import model.Caixa;
+import model.Estoque;
 import model.Funcionario;
 
 /**
@@ -34,8 +35,9 @@ public class TestCodigo {
         Caixa caixa3 = new Caixa(3);
         
         
-        
-        //wertyui
+        // criar estoque
+        Estoque.criarEstoque();
+  
         
         TelaPrincipal tela = new TelaPrincipal();
         tela.setVisible(true);
