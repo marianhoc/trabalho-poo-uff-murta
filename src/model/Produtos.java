@@ -15,10 +15,21 @@ public class Produtos {
     private String nome;
     private int valorUnitario;  // em centavos
     private String marca;
-    private String tamanho;       // quantidade  exemplo  300   500   // DUVIDAS  como nomear o tamanho
+    private int tamanho;       // quantidade  exemplo  300   500   // DUVIDAS  como nomear o tamanho
     private String unidadeMedida; // de que ??             ml   gr
 
-    
+    public Produtos(String codigo, String nome, int valorUnitario, String marca, int tamanho, String unidadeMedida) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.valorUnitario = valorUnitario;
+        this.marca = marca;
+        this.tamanho = tamanho;
+        this.unidadeMedida = unidadeMedida;
+    }
+
+    public Produtos(){
+        
+    }
  
     // setters and getters
     //
@@ -55,11 +66,11 @@ public class Produtos {
         this.marca = marca;
     }
 
-    public String getTamanho() {
+    public int getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(String tamanho) {
+    public void setTamanho(int tamanho) {
         this.tamanho = tamanho;
     }
 
@@ -76,6 +87,6 @@ public class Produtos {
     //setters and getters
     //============================ 
     
-    
+     
     
 }

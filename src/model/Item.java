@@ -11,48 +11,23 @@ package model;
  * @author copes
  */
 public class Item extends Produtos{ // 1 item numa venda pode ser 
-    private int quantidade;         // 3 pacotes de cafe 
-    private int valor;              // 
+    private int quantidadeDoItem ;// 3 pacotes de cafe 
 
-    public Item(int quantidade, int valor) {
-        this.quantidade = quantidade;
-        this.valor = valor;
+    
+    
+    public Item(int quantidadeDoItem, String codigo, String nome, int valorUnitario, String marca, int tamanho, String unidadeMedida) {
+        super(codigo, nome, valorUnitario, marca, tamanho, unidadeMedida);
+        this.quantidadeDoItem = quantidadeDoItem;
     }
-
+    
     public Item() {
     }
-
  
-    
- 
-    
-    
     // 
     //setter and getters
     //
     
-  
-    public int getQuantidade() {
-
-        return quantidade;
-    }
-
-    /**
-     * indica a quantidade do item ue esta sendo vendido ou atualizado no estoque
-     * @param quantidade 
-     */
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-
+ 
 
     // ======== END OF
     //setters and getters
