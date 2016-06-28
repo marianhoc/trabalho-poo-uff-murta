@@ -10,15 +10,17 @@ package model;
  *
  * @author copes
  */
-public class Item extends Produtos{ // 1 item numa venda pode ser 
+public class Item { // 1 item numa venda pode ser 
+    private Produtos item;
     private int quantidadeDoItem ;// 3 pacotes de cafe 
 
     
     
-    public Item(int quantidadeDoItem, String codigo, String nome, int valorUnitario, String marca, int tamanho, String unidadeMedida) {
-        super(codigo, nome, valorUnitario, marca, tamanho, unidadeMedida);
+    public Item(int quantidadeDoItem, Produtos item ) {
+        this.item = item;
         this.quantidadeDoItem = quantidadeDoItem;
     }
+
     
     public Item() {
     }

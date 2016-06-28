@@ -11,74 +11,18 @@ package model;
  * @author copes
  */
 public class Venda {
-    private int numDoCaixa;
-    private String cpfFuncionario;
-    private Item [] listoDeItens;
-    private int quantidadeProdutos;
-    private int total;    
-    private String formaDePagamento;
-    private int valorEntregue;  // trocado? 
-
+    private Caixa caixa;
+    private Funcionario operario;
+    private Item [] listoDeItens;    
+    private int total;    // 
+    private String formaDePagamento;  // criarclasse pagamento
+    private int valorEntregue;  // trocado?  
+      //  ADICIONAR DATA E HORA 
+                
     
     //====================================================
     //========= setters and getters ======================
     //====================================================
-    
-    public int getNumDoCaixa() {
-        return numDoCaixa;
-    }
-
-    public void setNumDoCaixa(int numDoCaixa) {
-        this.numDoCaixa = numDoCaixa;
-    }
-
-    public String getCpfFuncionario() {
-        return cpfFuncionario;
-    }
-
-    public void setCpfFuncionario(String cpfFuncionario) {
-        this.cpfFuncionario = cpfFuncionario;
-    }
-
-    public Item[] getListoDeItens() {
-        return listoDeItens;
-    }
-
-    public void setListoDeItens(Item[] listoDeItens) {
-        this.listoDeItens = listoDeItens;
-    }
-
-    public int getQuantidadeProdutos() {
-        return quantidadeProdutos;
-    }
-
-    public void setQuantidadeProdutos(int quantidadeProdutos) {
-        this.quantidadeProdutos = quantidadeProdutos;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public String getFormaDePagamento() {
-        return formaDePagamento;
-    }
-
-    public void setFormaDePagamento(String formaDePagamento) {
-        this.formaDePagamento = formaDePagamento;
-    }
-
-    public int getValorEntregue() {
-        return valorEntregue;
-    }
-
-    public void setValorEntregue(int valorEntregue) {
-        this.valorEntregue = valorEntregue;
-    }
     
 
     // ================ END OF====================
