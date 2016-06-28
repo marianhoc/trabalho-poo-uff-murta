@@ -32,7 +32,7 @@ public class Produtos {
     }
  
     // setters and getters
-    //
+    
     
     public String getCodigo() {
         return codigo;

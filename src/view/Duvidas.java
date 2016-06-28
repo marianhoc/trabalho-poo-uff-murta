@@ -11,10 +11,12 @@ package view;
  */
 public class Duvidas {
         
-ESTOQUE e classe??
+//ESTOQUE e classe??
 
-classe manager..  e neccesaria?? ou com o atributo de funcionario resole??
+//classe manager..  e neccesaria?? ou com o atributo de funcionario resole??
 
+// na entidade Caixa existe FUNCIONARIO 2 vezes, uma como atributo da VENDA e outra como atributo do CAIXA.
+    
     
     
 }

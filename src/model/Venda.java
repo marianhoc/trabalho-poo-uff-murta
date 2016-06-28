@@ -12,7 +12,7 @@ package model;
  */
 public class Venda {
     private Caixa caixa;
-    private Funcionario operario;
+    private Funcionario operario; // é necessario ??   ja existe funcionario dentro de CAIXA 
     private Item [] listoDeItens;    
     private int total;    // 
     private String formaDePagamento;  // criarclasse pagamento
@@ -25,6 +25,7 @@ public class Venda {
     //====================================================
     
 
+    
     // ================ END OF====================
     //============setters and getters=============
     //============================================ 
