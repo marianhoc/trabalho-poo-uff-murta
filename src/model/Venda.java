@@ -15,7 +15,7 @@ public class Venda {
     private Funcionario operario; // é necessario ??   ja existe funcionario dentro de CAIXA 
     private Item [] listoDeItens;    
     private int total;    // 
-    private String formaDePagamento;  // criarclasse pagamento
+    private TipoPagamento formaDePagamento; 
     private int valorEntregue;  // trocado?  
       //  ADICIONAR DATA E HORA 
                 

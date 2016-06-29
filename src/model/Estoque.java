@@ -14,7 +14,11 @@ import java.util.ArrayList;
  *
  * @author copes
  */
-public class Estoque extends Item{
+public class Estoque {
+    private Item [] itens; // trocar por um Map
+    
+    
+ //   singleton  ver
     
     // =====================
     // ===  setters and getters
@@ -34,6 +38,11 @@ public class Estoque extends Item{
     }
     public void consultarEstoque(){
         
+    }
+    
+    public int consultarValorProdutoPeloCodigo(int codigo){
+        
+        return 1;
     }
     
     public void descontarProdutosVendidos(Venda produtosVendidos){

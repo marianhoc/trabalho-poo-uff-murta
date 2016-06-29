@@ -11,12 +11,15 @@ package view;
  */
 public class Duvidas {
         
-//ESTOQUE e classe??
-
-//classe manager..  e neccesaria?? ou com o atributo de funcionario resole??
-
-// na entidade Caixa existe FUNCIONARIO 2 vezes, uma como atributo da VENDA e outra como atributo do CAIXA.
     
     
+// como manter o historico de vendas  
+    
+ // e o historico do estoque, ??? necessario ??
+    
+//atributo de pagamento na VENDA  como funciona??   
+    
+//classe manager..  e neccesaria?? ou com o atributo de funcionario resolve??
+  
     
 }

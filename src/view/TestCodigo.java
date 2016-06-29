@@ -39,10 +39,7 @@ public class TestCodigo {
         Estoque.criarEstoque();
   
         
-        TelaPrincipal tela = new TelaPrincipal();
-        tela.setVisible(true);
-        
-        //qwertyiuo
+       
         
         
     }
