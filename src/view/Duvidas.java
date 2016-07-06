@@ -13,13 +13,7 @@ public class Duvidas {
         
     
     
-// como manter o historico de vendas  
-    
- // e o historico do estoque, ??? necessario ??
-    
-//atributo de pagamento na VENDA  como funciona??   
-    
-//classe manager..  e neccesaria?? ou com o atributo de funcionario resolve??
-  
+
+
     
 }
