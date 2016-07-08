@@ -9,13 +9,14 @@ package model;
  *
  * @author copes
  */
-public class Caixa {                    // TODO
+public class Caixa {                   
     private int numeroDoCaixa;          //  DUVIDAS
     private boolean isFree;             //eeses doism atributos estao seno redundantes????
     private Funcionario operario;       //
 
     public Caixa(int numeroDoCaixa) {
         this.numeroDoCaixa = numeroDoCaixa;
+        this.isFree = true;
     }
 
     
@@ -26,6 +27,7 @@ public class Caixa {                    // TODO
 
     public void setNumeroDoCaixa(int numeroDoCaixa) {
         this.numeroDoCaixa = numeroDoCaixa;
+        
     }
 
     public boolean isIsFree() {

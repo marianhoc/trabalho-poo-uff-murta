@@ -11,8 +11,8 @@ package model;
  * @author copes
  */
 public class Item { // 1 item numa venda pode ser 
-    private Produtos item;
-    private int quantidadeDoItem ;// 3 pacotes de cafe 
+    private Produtos item;// 3 pacotes de cafe 
+    private int quantidadeDoItem ;
 
     
     
@@ -25,15 +25,37 @@ public class Item { // 1 item numa venda pode ser
     public Item() {
     }
  
+    
     // 
     //setter and getters
     //
+
+    @Override
+    public String toString() {
+        return item.getNome() + " - " + item.getMarca() ;
+    }
     
  
 
     // ======== END OF
     //setters and getters
     //============================ 
+
+    public Produtos getItem() {
+        return item;
+    }
+
+    public void setItem(Produtos item) {
+        this.item = item;
+    }
+
+    public int getQuantidadeDoItem() {
+        return quantidadeDoItem;
+    }
+
+    public void setQuantidadeDoItem(int quantidadeDoItem) {
+        this.quantidadeDoItem = quantidadeDoItem;
+    }
 
 
 }

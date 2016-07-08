@@ -11,14 +11,14 @@ package model;
  * @author copes
  */
 public class Produtos {
-    private String codigo;
+    private int codigo;
     private String nome;
     private int valorUnitario;  // em centavos
     private String marca;
     private int tamanho;       // quantidade  exemplo  300   500   // DUVIDAS  como nomear o tamanho
     private String unidadeMedida; // de que ??             ml   gr
 
-    public Produtos(String codigo, String nome, int valorUnitario, String marca, int tamanho, String unidadeMedida) {
+    public Produtos(int codigo, String nome, int valorUnitario, String marca, int tamanho, String unidadeMedida) {
         this.codigo = codigo;
         this.nome = nome;
         this.valorUnitario = valorUnitario;
@@ -34,11 +34,11 @@ public class Produtos {
     // setters and getters
     
     
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

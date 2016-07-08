@@ -7,15 +7,8 @@ package model;
 
 /**
  *
- * @author mariano
+ * @author copes
  */
-public class Leitor {
-    private int numDoLeitor;
-
-    
-  //public int consultarValorDeCodigo(String codigo){
-     // return // chamar o metodo de ESTOQUE
-  //}
-    
+public class PagamentoDinheiro {
     
 }

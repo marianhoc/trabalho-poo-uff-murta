@@ -5,6 +5,7 @@
  */
 package view;
 
+import model.*;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import javax.swing.JButton;
@@ -15,6 +16,8 @@ import javax.swing.JPanel;
  *
  * @author copes
  */
+
+
 public class TelaPrincipal extends JFrame{
 
     public TelaPrincipal() {
@@ -26,32 +29,26 @@ public class TelaPrincipal extends JFrame{
      * Imprime a tela de trabalho do Manager
      */
     public void imprimeTelaManager(){
-        
+     
+      
     }
     
-    /**
-     * TODO *******
-     */
+   
     public void imprimeTelaCaixa(){
+        // TODO  tela do caixa
+    
+     
         
     }
     
     public void imprimeTelaInicio(){
         //FRAME PRINCIPAL
-        
-        
+                
         // PAINEL
         JPanel painelEsquerda = new JPanel();
         
         // BUTTONS 
-        JButton test = new JButton("Click here");
-        
-        
-        
-        
-        
-        
-        
+        JButton test = new JButton("Click here");                                                        
         
         // Configuration a janela
         this.pack();

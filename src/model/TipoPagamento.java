@@ -9,37 +9,11 @@ package model;
  *
  * @author mariano
  */
-public class TipoPagamento {
+public abstract class TipoPagamento {
     private boolean cartao;
     private boolean cash;
 
-    public TipoPagamento() {
-        this.cartao = false;
-        this.cash = false;
-    }
 
-    
-    
-    public boolean isCartao() {
-        return cartao;
-    }
+public abstract void paga();
 
-    public void setCartao(boolean cartao) {
-        this.cartao = cartao;
-    }
-
-    public boolean isCash() {
-        return cash;
-    }
-
-    public void setCash(boolean cash) {
-        this.cash = cash;
-    }
-
-    
-    
-    
-
-    
-    
 }

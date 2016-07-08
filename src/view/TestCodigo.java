@@ -5,9 +5,11 @@
  */
 package view;
 
+import java.util.ArrayList;
 import model.Caixa;
 import model.Estoque;
 import model.Funcionario;
+import model.Venda;
 
 /**
  *
@@ -32,12 +34,25 @@ public class TestCodigo {
         
         Caixa caixa1 = new Caixa(1);
         Caixa caixa2 = new Caixa(2);
-        Caixa caixa3 = new Caixa(3);
+        Caixa caixa3 = new Caixa(3);        
+        
+        // ===============  Criar estoque  ================
         
         
-        // criar estoque
-        Estoque.criarEstoque();
-  
+        //estoque.consultarEstoqueArray();
+        
+
+        
+       
+        
+        // ============== Registo Vendas ===============
+        
+        ArrayList<Venda> vendas = new ArrayList<>();
+        
+        new TelaCaixaManual().setVisible(true);
+        //estoque.criarEstoqueMap();
+        //estoque.consultarEstoqueMap();
+        
         
        
         
