@@ -6,7 +6,7 @@
 package view;
 
 import java.util.ArrayList;
-import model.Estoque;
+import model.*;
 
 /**
  *
@@ -28,8 +28,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
        Estoque estoque = Estoque.getEstoque();
-        
-        
+       
         topPanel = new javax.swing.JPanel();
         labelUltimoItem = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -50,7 +49,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         labelTotalCompra = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        detalheDaVenda = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -164,9 +163,10 @@ public class TelaCaixaManual extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        detalheDaVenda.setColumns(20);
+        detalheDaVenda.setRows(5);
+        detalheDaVenda.setText("\tCOLOCAR AQUI O DETALHE DA VENDA\n\n \tseparando por linhas");
+        jScrollPane1.setViewportView(detalheDaVenda);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -313,7 +313,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea detalheDaVenda;
     private javax.swing.JLabel labelCodigo;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelTotalCompra;

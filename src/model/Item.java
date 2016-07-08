@@ -26,20 +26,17 @@ public class Item { // 1 item numa venda pode ser
     }
  
     
-    // 
-    //setter and getters
-    //
+
 
     @Override
     public String toString() {
         return item.getNome() + " - " + item.getMarca() ;
     }
     
- 
+     // 
+    //setter and getters
+    //
 
-    // ======== END OF
-    //setters and getters
-    //============================ 
 
     public Produtos getItem() {
         return item;
@@ -56,6 +53,10 @@ public class Item { // 1 item numa venda pode ser
     public void setQuantidadeDoItem(int quantidadeDoItem) {
         this.quantidadeDoItem = quantidadeDoItem;
     }
+
+     // ======== END OF
+    //setters and getters
+    //============================ 
 
 
 }

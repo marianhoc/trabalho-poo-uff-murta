@@ -89,8 +89,7 @@ public class Estoque extends ArrayList<Item>{
                 return i.getItem().getValorUnitario();
             }
         }   
-        return 0;// Produto nao cadastrado
-        
+        return 0;// Produto nao cadastrado        
     }
         
     
