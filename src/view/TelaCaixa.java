@@ -29,16 +29,16 @@ public class TelaCaixa extends javax.swing.JFrame {
 
         topPanel = new javax.swing.JPanel();
         labelUltimoItem = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        textLabelUltimoItem = new javax.swing.JLabel();
         painelEsquerdo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        spinnerUnidades = new javax.swing.JSpinner();
         labelCodigo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaCodigos = new javax.swing.JList<>();
         labelNome = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        listaNomes = new javax.swing.JList<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -67,9 +67,9 @@ public class TelaCaixa extends javax.swing.JFrame {
 
         labelUltimoItem.setText("Último Item");
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("jLabel3");
-        jLabel3.setOpaque(true);
+        textLabelUltimoItem.setBackground(new java.awt.Color(255, 255, 255));
+        textLabelUltimoItem.setText("jLabel3");
+        textLabelUltimoItem.setOpaque(true);
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -78,7 +78,7 @@ public class TelaCaixa extends javax.swing.JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(topPanelLayout.createSequentialGroup()
                         .addComponent(labelUltimoItem)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -90,7 +90,7 @@ public class TelaCaixa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelUltimoItem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -101,20 +101,30 @@ public class TelaCaixa extends javax.swing.JFrame {
         jLabel1.setText("Unidades");
         painelEsquerdo.add(jLabel1);
 
-        jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        painelEsquerdo.add(jSpinner1);
+        spinnerUnidades.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        spinnerUnidades.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                spinnerUnidadesMouseReleased(evt);
+            }
+        });
+        painelEsquerdo.add(spinnerUnidades);
 
         labelCodigo.setBackground(new java.awt.Color(255, 255, 255));
         labelCodigo.setText("Codigo");
         labelCodigo.setOpaque(true);
         painelEsquerdo.add(labelCodigo);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaCodigos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList1);
+        listaCodigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                listaCodigosMouseReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(listaCodigos);
 
         painelEsquerdo.add(jScrollPane2);
 
@@ -122,12 +132,17 @@ public class TelaCaixa extends javax.swing.JFrame {
         labelNome.setText("Nome");
         painelEsquerdo.add(labelNome);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        listaNomes.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList2);
+        listaNomes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                listaNomesMouseReleased(evt);
+            }
+        });
+        jScrollPane3.setViewportView(listaNomes);
 
         painelEsquerdo.add(jScrollPane3);
 
@@ -156,9 +171,13 @@ public class TelaCaixa extends javax.swing.JFrame {
         painelEsquerdo.add(labelTotalCompra);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setMaximumSize(new java.awt.Dimension(32767, 800));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextArea1.setFocusCycleRoot(true);
+        jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -188,13 +207,15 @@ public class TelaCaixa extends javax.swing.JFrame {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 57, Short.MAX_VALUE)
+            .addGap(0, 45, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(255, 0, 0));
         jPanel6.setLayout(new java.awt.GridLayout(1, 6, 2, 5));
 
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Operador");
+        jLabel4.setAlignmentX(1.0F);
         jPanel6.add(jLabel4);
 
         jLabel5.setText("Caixa");
@@ -233,13 +254,13 @@ public class TelaCaixa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(painelEsquerdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(painelEsquerdo, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -247,6 +268,18 @@ public class TelaCaixa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void listaCodigosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaCodigosMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaCodigosMouseReleased
+
+    private void listaNomesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listaNomesMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaNomesMouseReleased
+
+    private void spinnerUnidadesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spinnerUnidadesMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_spinnerUnidadesMouseReleased
 
     /**
      * @param args the command line arguments
@@ -288,14 +321,11 @@ public class TelaCaixa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -305,14 +335,17 @@ public class TelaCaixa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelCodigo;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelTotalCompra;
     private javax.swing.JLabel labelTotalItem;
     private javax.swing.JLabel labelUltimoItem;
+    private javax.swing.JList<String> listaCodigos;
+    private javax.swing.JList<String> listaNomes;
     private javax.swing.JPanel painelEsquerdo;
+    private javax.swing.JSpinner spinnerUnidades;
+    private javax.swing.JLabel textLabelUltimoItem;
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 }

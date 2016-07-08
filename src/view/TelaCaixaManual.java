@@ -5,6 +5,7 @@
  */
 package view;
 
+import controller.ControleNovoItem;
 import java.util.ArrayList;
 import model.*;
 
@@ -31,7 +32,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
        
         topPanel = new javax.swing.JPanel();
         labelUltimoItem = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        textLabelUltimoItem = new javax.swing.JLabel();
         painelEsquerdo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
@@ -69,9 +70,9 @@ public class TelaCaixaManual extends javax.swing.JFrame {
 
         labelUltimoItem.setText("Último Item");
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("jLabel3");
-        jLabel3.setOpaque(true);
+        textLabelUltimoItem.setBackground(new java.awt.Color(255, 255, 255));
+        textLabelUltimoItem.setText("Ultimo item");
+        textLabelUltimoItem.setOpaque(true);
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -80,7 +81,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(topPanelLayout.createSequentialGroup()
                         .addComponent(labelUltimoItem)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -92,7 +93,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelUltimoItem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -100,7 +101,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         painelEsquerdo.setLayout(new java.awt.GridLayout(8, 2));
 
         jLabel1.setLabelFor(labelCodigo);
-        jLabel1.setText("Unidades");
+        jLabel1.setText("Unidades - Gramas");
         painelEsquerdo.add(jLabel1);
 
         jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -165,7 +166,20 @@ public class TelaCaixaManual extends javax.swing.JFrame {
 
         detalheDaVenda.setColumns(20);
         detalheDaVenda.setRows(5);
-        detalheDaVenda.setText("\tCOLOCAR AQUI O DETALHE DA VENDA\n\n \tseparando por linhas");
+        detalheDaVenda.setFocusable(false);
+        detalheDaVenda.setText("\tCOLOCAR AQUI O DETALHE DA VENDA\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas"
+                + "\n\n \tseparando por linhas");
         jScrollPane1.setViewportView(detalheDaVenda);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -251,7 +265,14 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         );
 
         topPanel.getAccessibleContext().setAccessibleName("");
-
+        
+        
+        // Listeners
+        
+        jList2.addListSelectionListener(new ControleNovoItem(estoque.pegarNomeDeProdutos(), textLabelUltimoItem));
+        jList1.addListSelectionListener(new ControleNovoItem(estoque.pegarCodigoDosProdutos(), textLabelUltimoItem));
+        
+        
         pack();
     }// </editor-fold>                        
 
@@ -295,7 +316,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel textLabelUltimoItem;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
