@@ -103,7 +103,7 @@ public class Estoque extends ArrayList<Item>{
      */
     public void criarEstoque(){
         //  novo Item = quant + Produto-> |Codigo | Nome    | Valor |Marca ou tipo|Tamanho |unidade de medida
-        this.add(new Item(50, new Produtos(123456, "cafe",     450, "pilao",        50,     "gr")));
+        this.add(new Item(50, new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr")));
         this.add(new Item(50, new Produtos(123457, "leite",    450, "Parmalat",     1000,   "ml")));
         this.add(new Item(50, new Produtos(123467, "leite",    450, "Quata",        1000,   "ml")));
         this.add(new Item(50, new Produtos(444444, "pimenta",  300, "pilao",        50,     "gr")));

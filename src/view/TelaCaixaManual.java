@@ -344,3 +344,21 @@ public class TelaCaixaManual extends javax.swing.JFrame {
     private javax.swing.JPanel topPanel;
     // End of variables declaration                   
 }
+
+
+/*
+
+TODO  Leo
+
+fazer com que a janela mostre um ArrayList <Item> 
+e um botao para fechar a compra  (Venda) que vai salvar (adicionar no final) a Venda no ArrayList <Venda> ARQUIVO LEO
+ 
+==========================================================
+
+
+TODO  Evandro
+por outro lado
+fazer uma janela pro gerente que consiga recuperar o arquivo como ArrayList<Vendas>
+
+
+*/

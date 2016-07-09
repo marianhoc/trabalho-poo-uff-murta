@@ -6,8 +6,6 @@
 package controller;
 
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -45,8 +43,12 @@ public class ControleNovoItem implements ListSelectionListener{
     @Override
     public void valueChanged(ListSelectionEvent e) {
             //ListSelectionModel lsm = (ListSelectionModel)e.getSource();
-                
-                ultimoItem.setText(codigo[e.getLastIndex()]);
+               try{
+                  ultimoItem.setText(codigo[e.getLastIndex()]);
+                 
+               } catch(Exception ex){
+                   // TODO  implementar exceçao
+               }
                 
                 
                 
