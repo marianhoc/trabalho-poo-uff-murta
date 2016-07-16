@@ -7,6 +7,7 @@ package view;
 
 import controller.ControleNovoItem;
 import java.util.ArrayList;
+import java.util.Date;
 import model.*;
 
 /**
@@ -14,10 +15,9 @@ import model.*;
  * @author copes
  */
 public class TelaCaixaManual extends javax.swing.JFrame {
-    
 
-    public TelaCaixaManual() {
-        initComponents();
+    public TelaCaixaManual(Funcionario funcionario, int numeroDoCaixa, Date data) {
+        initComponents(funcionario, numeroDoCaixa, data);
     }
 
     /**
@@ -27,23 +27,24 @@ public class TelaCaixaManual extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents() {
+    private void initComponents(Funcionario funcionario, int numeroDoCaixa, Date data) {
        Estoque estoque = Estoque.getEstoque();
        
         topPanel = new javax.swing.JPanel();
         labelUltimoItem = new javax.swing.JLabel();
         textLabelUltimoItem = new javax.swing.JLabel();
+        botaoConfirmaItem = new javax.swing.JButton();
         painelEsquerdo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        unidadesGramas = new javax.swing.JSpinner();
         labelCodigo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         labelNome = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        valorUnotarioLabel = new javax.swing.JLabel();
+        valorItem = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         labelTotalItem = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -53,13 +54,20 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         detalheDaVenda = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        operadorLabel = new javax.swing.JLabel();
+        caixaLabel = new javax.swing.JLabel();
+        dataLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuConsultar = new javax.swing.JMenu();
 
+        menuConsultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                consultarValorMouseClicked(evt);
+            }
+        });
+        
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mercado");
         setBackground(new java.awt.Color(51, 51, 51));
@@ -67,33 +75,48 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         topPanel.setBackground(new java.awt.Color(255, 204, 204));
         topPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         topPanel.setName("ultimoItem"); // NOI18N
-
         labelUltimoItem.setText("Último Item");
-
         textLabelUltimoItem.setBackground(new java.awt.Color(255, 255, 255));
         textLabelUltimoItem.setText("Ultimo item");
         textLabelUltimoItem.setOpaque(true);
-
-        javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
+        
+        botaoConfirmaItem.setText("Confirma item");
+        botaoConfirmaItem.setToolTipText("confirma o item e adiciona na lista de Itens que o cliente esta comprando");
+        botaoConfirmaItem.setMargin(new java.awt.Insets(2, 14, 2, 10));
+        botaoConfirmaItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botaoConfirmaItemMouseReleased(evt);
+            }
+        });
+        botaoConfirmaItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmaItemActionPerformed(evt);
+            }
+        });
+        
+javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(topPanelLayout.createSequentialGroup()
-                        .addComponent(labelUltimoItem)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(labelUltimoItem)
+                    .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoConfirmaItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelUltimoItem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addComponent(labelUltimoItem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                    .addComponent(botaoConfirmaItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -104,8 +127,8 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         jLabel1.setText("Unidades - Gramas");
         painelEsquerdo.add(jLabel1);
 
-        jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        painelEsquerdo.add(jSpinner1);
+        unidadesGramas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        painelEsquerdo.add(unidadesGramas);
 
         labelCodigo.setBackground(new java.awt.Color(255, 255, 255));
         labelCodigo.setText("Codigo");
@@ -138,14 +161,14 @@ public class TelaCaixaManual extends javax.swing.JFrame {
 
         painelEsquerdo.add(jScrollPane3);
 
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setLabelFor(labelNome);
-        jLabel10.setText("Valor unitario/ no quilo");
-        jLabel10.setOpaque(true);
-        painelEsquerdo.add(jLabel10);
+        valorUnotarioLabel.setBackground(new java.awt.Color(255, 255, 255));
+        valorUnotarioLabel.setLabelFor(labelNome);
+        valorUnotarioLabel.setText("Valor unitario/ no quilo");
+        valorUnotarioLabel.setOpaque(true);
+        painelEsquerdo.add(valorUnotarioLabel);
 
-        jLabel7.setText("-------"); //Valor unitario
-        painelEsquerdo.add(jLabel7);
+        valorItem.setText("-------"); //Valor unitario
+        painelEsquerdo.add(valorItem);
 
         jLabel8.setLabelFor(labelTotalItem);
         jLabel8.setText("Total do Item");
@@ -167,19 +190,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         detalheDaVenda.setColumns(20);
         detalheDaVenda.setRows(5);
         detalheDaVenda.setFocusable(false);
-        detalheDaVenda.setText("\tCOLOCAR AQUI O DETALHE DA VENDA\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas"
-                + "\n\n \tseparando por linhas");
+        detalheDaVenda.setText("\tCOLOCAR AQUI O DETALHE DA VENDA\n\n \tseparando por linhas");
         jScrollPane1.setViewportView(detalheDaVenda);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -215,20 +226,20 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 0, 0));
         jPanel6.setLayout(new java.awt.GridLayout(1, 6, 2, 5));
 
-        jLabel4.setText("Operador");
-        jPanel6.add(jLabel4);
+        operadorLabel.setText("OPERADOR : " + funcionario.getNome() + " " + funcionario.getSobrenome());
+        jPanel6.add(operadorLabel);
 
-        jLabel5.setText("Caixa");
-        jPanel6.add(jLabel5);
+        caixaLabel.setText("CAIXA # " + numeroDoCaixa);
+        jPanel6.add(caixaLabel);
 
-        jLabel6.setText("Dia");
-        jPanel6.add(jLabel6);
+        dataLabel.setText("DATA : " + data);
+        jPanel6.add(dataLabel);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuConsultar.setText("Consultar");
+        jMenuBar1.add(menuConsultar);
 
         setJMenuBar(jMenuBar1);
 
@@ -269,13 +280,46 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         
         // Listeners
         
-        jList2.addListSelectionListener(new ControleNovoItem(estoque.pegarNomeDeProdutos(), textLabelUltimoItem));
-        jList1.addListSelectionListener(new ControleNovoItem(estoque.pegarCodigoDosProdutos(), textLabelUltimoItem));
+        jList2.addListSelectionListener(new ControleNovoItem(estoque, unidadesGramas , textLabelUltimoItem));
+        jList1.addListSelectionListener(new ControleNovoItem(estoque, unidadesGramas ,textLabelUltimoItem));
+        unidadesGramas.addChangeListener(new ControleNovoItem(estoque, unidadesGramas , textLabelUltimoItem));
+        
         
         
         pack();
     }// </editor-fold>                        
 
+    /*
+    private void listaCodigosMouseReleased(java.awt.event.MouseEvent evt) {                                           
+        // TODO add your handling code here:
+    }                                          
+
+    private void listaNomesMouseReleased(java.awt.event.MouseEvent evt) {                                         
+        // TODO add your handling code here:
+    }                                        
+
+    private void spinnerUnidadesMouseReleased(java.awt.event.MouseEvent evt) {                                              
+        // TODO add your handling code here:
+    }                                             
+*/
+    private void botaoConfirmaItemActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        //TODO
+        //append um item no array de itens que forma a venda
+        //
+        
+        detalheDaVenda.append("\n  colocar o detalhe do item aqui  tempo " );
+    }                                                 
+
+    private void botaoConfirmaItemMouseReleased(java.awt.event.MouseEvent evt) {                                                
+        // TODO add your handling code here:
+    }                                               
+    private void consultarValorMouseClicked(java.awt.event.MouseEvent evt) {                                            
+        new Leitor().setVisible(true);
+    }                                           
+
+    
+    
+    
     /**
      * @param args the command line arguments
  
@@ -313,19 +357,20 @@ public class TelaCaixaManual extends javax.swing.JFrame {
     }
   */
     // Variables declaration - do not modify                     
+    private javax.swing.JButton botaoConfirmaItem;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel valorUnotarioLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel textLabelUltimoItem;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel operadorLabel;
+    private javax.swing.JLabel caixaLabel;
+    private javax.swing.JLabel dataLabel;
+    private javax.swing.JLabel valorItem;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu menuConsultar;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -333,7 +378,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner unidadesGramas;
     private javax.swing.JTextArea detalheDaVenda;
     private javax.swing.JLabel labelCodigo;
     private javax.swing.JLabel labelNome;

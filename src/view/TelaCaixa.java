@@ -30,6 +30,7 @@ public class TelaCaixa extends javax.swing.JFrame {
         topPanel = new javax.swing.JPanel();
         labelUltimoItem = new javax.swing.JLabel();
         textLabelUltimoItem = new javax.swing.JLabel();
+        botaoConfirmaItem = new javax.swing.JButton();
         painelEsquerdo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         spinnerUnidades = new javax.swing.JSpinner();
@@ -51,11 +52,11 @@ public class TelaCaixa extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        caixaLabel = new javax.swing.JLabel();
+        dataLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        consultarValor = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mercado");
@@ -71,6 +72,20 @@ public class TelaCaixa extends javax.swing.JFrame {
         textLabelUltimoItem.setText("jLabel3");
         textLabelUltimoItem.setOpaque(true);
 
+        botaoConfirmaItem.setText("Confirma item");
+        botaoConfirmaItem.setToolTipText("confirma o item e adiciona na lista de Itens que o cliente esta comprando");
+        botaoConfirmaItem.setMargin(new java.awt.Insets(2, 14, 2, 10));
+        botaoConfirmaItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                botaoConfirmaItemMouseReleased(evt);
+            }
+        });
+        botaoConfirmaItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmaItemActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
@@ -78,19 +93,22 @@ public class TelaCaixa extends javax.swing.JFrame {
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(topPanelLayout.createSequentialGroup()
-                        .addComponent(labelUltimoItem)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(labelUltimoItem)
+                    .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 955, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(botaoConfirmaItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelUltimoItem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addComponent(labelUltimoItem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textLabelUltimoItem, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                    .addComponent(botaoConfirmaItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -175,7 +193,7 @@ public class TelaCaixa extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextArea1.setFocusCycleRoot(true);
         jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
@@ -218,17 +236,22 @@ public class TelaCaixa extends javax.swing.JFrame {
         jLabel4.setAlignmentX(1.0F);
         jPanel6.add(jLabel4);
 
-        jLabel5.setText("Caixa");
-        jPanel6.add(jLabel5);
+        caixaLabel.setText("Caixa");
+        jPanel6.add(caixaLabel);
 
-        jLabel6.setText("Dia");
-        jPanel6.add(jLabel6);
+        dataLabel.setText("Data");
+        jPanel6.add(dataLabel);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        consultarValor.setText("Edit");
+        consultarValor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                consultarValorMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(consultarValor);
 
         setJMenuBar(jMenuBar1);
 
@@ -281,6 +304,18 @@ public class TelaCaixa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_spinnerUnidadesMouseReleased
 
+    private void botaoConfirmaItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmaItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoConfirmaItemActionPerformed
+
+    private void botaoConfirmaItemMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoConfirmaItemMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoConfirmaItemMouseReleased
+
+    private void consultarValorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultarValorMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultarValorMouseClicked
+
     /**
      * @param args the command line arguments
    */
@@ -318,16 +353,17 @@ public class TelaCaixa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoConfirmaItem;
+    private javax.swing.JLabel caixaLabel;
+    private javax.swing.JMenu consultarValor;
+    private javax.swing.JLabel dataLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

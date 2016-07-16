@@ -49,7 +49,8 @@ public class TestCodigo {
         
         ArrayList<Venda> vendas = new ArrayList<>();
         
-        new TelaCaixaManual().setVisible(true);
+        //new TelaCaixaManual().setVisible(true);
+        new LogInFuncionarios().setVisible(true);
         //estoque.criarEstoqueMap();
         //estoque.consultarEstoqueMap();
         
