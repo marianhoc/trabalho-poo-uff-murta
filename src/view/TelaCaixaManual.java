@@ -15,7 +15,8 @@ import model.*;
  * @author copes
  */
 public class TelaCaixaManual extends javax.swing.JFrame {
-
+    private ArrayList<Item>itensDaCompra;
+    
     public TelaCaixaManual(Funcionario funcionario, int numeroDoCaixa, Date data) {
         initComponents(funcionario, numeroDoCaixa, data);
     }
@@ -29,6 +30,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents(Funcionario funcionario, int numeroDoCaixa, Date data) {
        Estoque estoque = Estoque.getEstoque();
+       
        
         topPanel = new javax.swing.JPanel();
         labelUltimoItem = new javax.swing.JLabel();
@@ -331,6 +333,17 @@ javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
 
     private void botaoConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {                                                     
         // TODO add your handling code here:
+        
+        // pegar cada item do array 
+        itensDaCompra
+        
+       // depois de ter colocado no apagar todos
+                
+        
+        
+        
+        
+        
     }                                                    
 
     
