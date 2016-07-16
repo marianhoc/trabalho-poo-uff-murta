@@ -47,6 +47,7 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         valorItem = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         labelTotalItem = new javax.swing.JLabel();
+        botaoConfirmarCompra = new java.awt.Button();
         jLabel2 = new javax.swing.JLabel();
         labelTotalCompra = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -185,6 +186,17 @@ javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         labelTotalCompra.setOpaque(true);
         painelEsquerdo.add(labelTotalCompra);
 
+        botaoConfirmarCompra.setBackground(new java.awt.Color(255, 0, 51));
+        botaoConfirmarCompra.setLabel("CONFIRMAR COMPRA");
+        botaoConfirmarCompra.setName(""); // NOI18N
+        botaoConfirmarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarCompraActionPerformed(evt);
+            }
+        });
+        painelEsquerdo.add(botaoConfirmarCompra);
+        
+        
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         detalheDaVenda.setColumns(20);
@@ -317,7 +329,10 @@ javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         new Leitor().setVisible(true);
     }                                           
 
-    
+    private void botaoConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+        // TODO add your handling code here:
+    }                                                    
+
     
     
     /**
@@ -358,6 +373,7 @@ javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
   */
     // Variables declaration - do not modify                     
     private javax.swing.JButton botaoConfirmaItem;
+    private java.awt.Button botaoConfirmarCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel valorUnotarioLabel;
     private javax.swing.JLabel jLabel2;

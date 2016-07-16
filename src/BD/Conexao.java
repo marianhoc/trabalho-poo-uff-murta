@@ -12,7 +12,7 @@ public class Conexao {
     private Conexao() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/supermercado", user, password);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:8080/supermercado", user, password);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Nao foi possivel efetuar uma conexao com o BD!");

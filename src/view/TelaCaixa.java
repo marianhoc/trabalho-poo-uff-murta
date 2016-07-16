@@ -46,6 +46,7 @@ public class TelaCaixa extends javax.swing.JFrame {
         labelTotalItem = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         labelTotalCompra = new javax.swing.JLabel();
+        botaoConfirmarCompra = new java.awt.Button();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -188,6 +189,16 @@ public class TelaCaixa extends javax.swing.JFrame {
         labelTotalCompra.setOpaque(true);
         painelEsquerdo.add(labelTotalCompra);
 
+        botaoConfirmarCompra.setBackground(new java.awt.Color(255, 0, 51));
+        botaoConfirmarCompra.setLabel("CONFIRMAR COMPRA");
+        botaoConfirmarCompra.setName(""); // NOI18N
+        botaoConfirmarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConfirmarCompraActionPerformed(evt);
+            }
+        });
+        painelEsquerdo.add(botaoConfirmarCompra);
+
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel4.setMaximumSize(new java.awt.Dimension(32767, 800));
 
@@ -316,6 +327,10 @@ public class TelaCaixa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_consultarValorMouseClicked
 
+    private void botaoConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConfirmarCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoConfirmarCompraActionPerformed
+
     /**
      * @param args the command line arguments
    */
@@ -354,6 +369,7 @@ public class TelaCaixa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoConfirmaItem;
+    private java.awt.Button botaoConfirmarCompra;
     private javax.swing.JLabel caixaLabel;
     private javax.swing.JMenu consultarValor;
     private javax.swing.JLabel dataLabel;

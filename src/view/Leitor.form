@@ -105,6 +105,9 @@
             </Property>
             <Property name="label" type="java.lang.String" value="CONSULTAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botaoConsultarMousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

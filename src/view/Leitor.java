@@ -4,17 +4,26 @@
  * and open the template in the editor.
  */
 package view;
+import bd.*;
+import java.util.HashMap;
+import java.util.Map;
+import model.*;
 
 /**
  *
  * @author mariano
  */
 public class Leitor extends javax.swing.JFrame {
-
+    private Map<Integer, Produtos> inventario;
     /**
      * Creates new form Leitor
      */
     public Leitor() {
+        //Conexao conection = Conexao.getInstance();
+        inventario = new HashMap<>();
+        inventario.put(456, new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );
+        inventario.put(123,new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );
+        
         initComponents();
     }
 
@@ -51,6 +60,11 @@ public class Leitor extends javax.swing.JFrame {
         botaoConsultar.setBackground(new java.awt.Color(255, 255, 51));
         botaoConsultar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         botaoConsultar.setLabel("CONSULTAR");
+        botaoConsultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                botaoConsultarMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -130,6 +144,19 @@ public class Leitor extends javax.swing.JFrame {
     private void inputCodigoTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inputCodigoTextFieldMouseClicked
         inputCodigoTextField.setText("");
     }//GEN-LAST:event_inputCodigoTextFieldMouseClicked
+
+    private void botaoConsultarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoConsultarMousePressed
+      
+        try{
+            nomeProdutoTextField.setText(inventario.get(Integer.parseInt(inputCodigoTextField.getText())).getNome());
+        }
+        catch(NullPointerException npe){
+            nomeProdutoTextField.setText("- PRODUTO NAO CADASTRADO -");
+        }catch(Exception e){
+            nomeProdutoTextField.setText("- ALGUMA OUTRA EXCECAO, CONFERIR -");
+        }
+        
+    }//GEN-LAST:event_botaoConsultarMousePressed
 
     /**
      * @param args the command line arguments
