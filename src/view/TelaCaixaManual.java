@@ -15,7 +15,7 @@ import model.*;
  * @author copes
  */
 public class TelaCaixaManual extends javax.swing.JFrame {
-    private ArrayList<Item>itensDaCompra;
+    private ArrayList<Item>itensDaCompra;   // array provisorio para manter os itens ate  CONCLUIR A COMPRA
     
     public TelaCaixaManual(Funcionario funcionario, int numeroDoCaixa, Date data) {
         initComponents(funcionario, numeroDoCaixa, data);
@@ -82,13 +82,14 @@ public class TelaCaixaManual extends javax.swing.JFrame {
         textLabelUltimoItem.setBackground(new java.awt.Color(255, 255, 255));
         textLabelUltimoItem.setText("Ultimo item");
         textLabelUltimoItem.setOpaque(true);
-        
+        //TODO  Leo   descrica do botao CONFIRMA ITEM
         botaoConfirmaItem.setText("Confirma item");
         botaoConfirmaItem.setToolTipText("confirma o item e adiciona na lista de Itens que o cliente esta comprando");
         botaoConfirmaItem.setMargin(new java.awt.Insets(2, 14, 2, 10));
         botaoConfirmaItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                botaoConfirmaItemMouseReleased(evt);
+                botaoConfirmaItemMouseReleased(evt);    //  N CLICK VAI SER CHEMADO ESSE METODO
             }
         });
         botaoConfirmaItem.addActionListener(new java.awt.event.ActionListener() {
@@ -317,11 +318,11 @@ javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
     }                                             
 */
     private void botaoConfirmaItemActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        //TODO
+        //TODO  LEONARDO
         //append um item no array de itens que forma a venda
-        //
+        //  nome do array  ->  itensDaCompra
         
-        detalheDaVenda.append("\n  colocar o detalhe do item aqui  tempo " );
+        detalheDaVenda.append("\n  colocar o detalhe do item aqui  LEONARDO " );
     }                                                 
 
     private void botaoConfirmaItemMouseReleased(java.awt.event.MouseEvent evt) {                                                
@@ -332,12 +333,16 @@ javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
     }                                           
 
     private void botaoConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {                                                     
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
+        System.out.println(" CONFIRMAR COMPRA ");
         
-        // pegar cada item do array 
-        itensDaCompra
+                // pegar cada item do array e insere na tabela de Itens vendidos
+
+                 //Atualizar o estoque
         
-       // depois de ter colocado no apagar todos
+       // depois de ter colocado os itens deletar os itens
+       
+      
                 
         
         
