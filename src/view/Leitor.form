@@ -107,6 +107,7 @@
           </Properties>
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="botaoConsultarMousePressed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoConsultarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package view;
+
 import bd.*;
+import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import model.*;
@@ -14,17 +17,51 @@ import model.*;
  * @author mariano
  */
 public class Leitor extends javax.swing.JFrame {
-    private Map<Integer, Produtos> inventario;
+    private Map<String, String> inventarioNomes;
+    private Map<String, String> inventarioValores;
+    
     /**
      * Creates new form Leitor
      */
     public Leitor() {
-        //Conexao conection = Conexao.getInstance();
-        inventario = new HashMap<>();
-        inventario.put(456, new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );
-        inventario.put(123,new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );
+        inventarioNomes = new HashMap<>(); 
+        inventarioValores = new HashMap<>(); 
         
-        initComponents();
+        //inventario.put(456, new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );
+        //inventario.put(123,new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );               
+        initComponents();        
+        
+        Conexao sql = Conexao.getInstance();
+        
+        try {     
+            // 1-Get a connection  to database
+            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost/supermercado", "poo", "poo");
+           
+            // 2-Create a statement
+            Statement myState = sql.getConnection().createStatement();
+            // 3-Execute SQL query 
+            String query = "SELECT *"
+                           + "FROM produtos";
+                    
+            ResultSet resulado = myState.executeQuery(query);                                
+            // 4-Process the result set
+            while (resulado.next()){
+                inventarioNomes.put(resulado.getString("codigo"),resulado.getString("nome") +" " + 
+                                    resulado.getString("marca")+ " " +
+                                    resulado.getString("tamanho") + " " +
+                                    resulado.getString("unidade")
+                        );
+                inventarioValores.put(resulado.getString("codigo"),resulado.getString("valor"));	
+
+            }
+            
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+
+        }catch(Exception e){
+            System.out.println(" algum outro erro ");
+        } 
+        
     }
 
     /**
@@ -63,6 +100,11 @@ public class Leitor extends javax.swing.JFrame {
         botaoConsultar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 botaoConsultarMousePressed(evt);
+            }
+        });
+        botaoConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoConsultarActionPerformed(evt);
             }
         });
 
@@ -147,16 +189,24 @@ public class Leitor extends javax.swing.JFrame {
 
     private void botaoConsultarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoConsultarMousePressed
       
-        try{
-            nomeProdutoTextField.setText(inventario.get(Integer.parseInt(inputCodigoTextField.getText())).getNome());
+        try{            
+            Double valor = Integer.parseInt(inventarioValores.get(inputCodigoTextField.getText()))/100.0;
+            
+            nomeProdutoTextField.setText(inventarioNomes.get(inputCodigoTextField.getText()));           
+            valorDoProdutoTextField.setText("R$ " + valor.toString());
+            
         }
         catch(NullPointerException npe){
-            nomeProdutoTextField.setText("- PRODUTO NAO CADASTRADO -");
+            nomeProdutoTextField.setText("- PRODUTO NAO CADASTRADO. NPE-");
         }catch(Exception e){
-            nomeProdutoTextField.setText("- ALGUMA OUTRA EXCECAO, CONFERIR -");
-        }
-        
+            nomeProdutoTextField.setText("- PRODUTO NAO CADASTRADO -");
+        }        
     }//GEN-LAST:event_botaoConsultarMousePressed
+
+    private void botaoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarActionPerformed
+         
+        
+    }//GEN-LAST:event_botaoConsultarActionPerformed
 
     /**
      * @param args the command line arguments

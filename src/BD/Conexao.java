@@ -12,7 +12,12 @@ public class Conexao {
     private Conexao() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:8080/supermercado", user, password);
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/supermercado", user, password);
+            
+            System.out.println("funcionou");
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Nao foi possivel efetuar uma conexao com o BD!");
@@ -37,6 +42,7 @@ public class Conexao {
         try {
             conn.close();
         } catch (SQLException e) {
+            
         }
         conexao = null;
     }
