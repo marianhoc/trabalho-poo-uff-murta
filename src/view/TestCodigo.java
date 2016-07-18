@@ -5,7 +5,10 @@
  */
 package view;
 
+import bd.Conexao;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import model.Caixa;
 import model.Estoque;
 import model.Funcionario;
@@ -21,15 +24,13 @@ public class TestCodigo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        //=================== FUNCIONARIOS ==========================
-        Funcionario funcionario1 = new Funcionario("Mariano", "Copes", "123456", false);
-        Funcionario funcionario2 = new Funcionario("Leonardo", "Potugal", "987654", false);
-        Funcionario funcionario3 = new Funcionario("Evandro", "naosei", "111111", false);
-        Funcionario funcionario4 = new Funcionario("Caio1", "qwertyu", "222222", false);
-        Funcionario funcionario5 = new Funcionario("Caio2", "asdfghj", "333333", false);
-        Funcionario funcionario6 = new Funcionario("Leonardo", "Murta", "555555", true);
         
+        Conexao sql = Conexao.getInstance();
+        
+        
+        
+        //=================== FUNCIONARIOS ==========================
+
         // ===================== CAIXAS ===================
         
         Caixa caixa1 = new Caixa(1);

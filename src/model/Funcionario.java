@@ -14,7 +14,8 @@ public class Funcionario {
     private String nome;
     private String sobrenome;
     private String cpf;
-    private boolean isManager;
+    //private boolean isManager;
+    private int isManager;
 
     /**
      * inicializa um novo funcionario com os parametros indicados
@@ -24,7 +25,7 @@ public class Funcionario {
      * @param cpf
      * @param isManager 
      */
-    public Funcionario(String nome, String sobrenome, String cpf, boolean isManager) {
+    public Funcionario(String nome, String sobrenome, String cpf, int isManager) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -58,11 +59,11 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    public boolean isIsManager() {
+    public int isIsManager() {
         return isManager;
     }
 
-    public void setIsManager(boolean isManager) {
+    public void setIsManager(int isManager) {
         this.isManager = isManager;
     }
     

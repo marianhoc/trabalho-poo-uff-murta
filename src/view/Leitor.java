@@ -19,49 +19,12 @@ import model.*;
 public class Leitor extends javax.swing.JFrame {
     private Map<String, String> inventarioNomes;
     private Map<String, String> inventarioValores;
-    
+
     /**
      * Creates new form Leitor
      */
-    public Leitor() {
-        inventarioNomes = new HashMap<>(); 
-        inventarioValores = new HashMap<>(); 
-        
-        //inventario.put(456, new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );
-        //inventario.put(123,new Produtos(123456, "cafeee",     450, "pilao",        50,     "gr") );               
-        initComponents();        
-        
-        Conexao sql = Conexao.getInstance();
-        
-        try {     
-            // 1-Get a connection  to database
-            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost/supermercado", "poo", "poo");
-           
-            // 2-Create a statement
-            Statement myState = sql.getConnection().createStatement();
-            // 3-Execute SQL query 
-            String query = "SELECT *"
-                           + "FROM produtos";
-                    
-            ResultSet resulado = myState.executeQuery(query);                                
-            // 4-Process the result set
-            while (resulado.next()){
-                inventarioNomes.put(resulado.getString("codigo"),resulado.getString("nome") +" " + 
-                                    resulado.getString("marca")+ " " +
-                                    resulado.getString("tamanho") + " " +
-                                    resulado.getString("unidade")
-                        );
-                inventarioValores.put(resulado.getString("codigo"),resulado.getString("valor"));	
-
-            }
-            
-        }catch(SQLException sqle){
-            System.out.println(sqle);
-
-        }catch(Exception e){
-            System.out.println(" algum outro erro ");
-        } 
-        
+    public Leitor() {                        
+        initComponents();                                               
     }
 
     /**
@@ -188,7 +151,14 @@ public class Leitor extends javax.swing.JFrame {
     }//GEN-LAST:event_inputCodigoTextFieldMouseClicked
 
     private void botaoConsultarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoConsultarMousePressed
-      
+          
+    inventarioNomes = new HashMap<>(); 
+    inventarioValores = new HashMap<>();
+    
+    Conexao sql = Conexao.getInstance();
+    sql.getConnection();
+    sql.carregarProdutosNoLeitor(inventarioNomes, inventarioValores);
+        
         try{            
             Double valor = Integer.parseInt(inventarioValores.get(inputCodigoTextField.getText()))/100.0;
             
@@ -208,6 +178,9 @@ public class Leitor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botaoConsultarActionPerformed
 
+    
+ 
+    
     /**
      * @param args the command line arguments
      */

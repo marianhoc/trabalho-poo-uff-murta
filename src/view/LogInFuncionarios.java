@@ -4,20 +4,25 @@
  * and open the template in the editor.
  */
 package view;
+import bd.Conexao;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Map;
 import model.*;
 /**
  *
  * @author mariano
  */
 public class LogInFuncionarios extends javax.swing.JFrame {
-
+    private Map<Integer, Funcionario> funcionarios;
+    private StringBuffer texto = new StringBuffer();
     /**
      * Creates new form LogInFuncionarios
      */
     public LogInFuncionarios() {
         initComponents();
+   
     }
 
     /**
@@ -124,16 +129,45 @@ public class LogInFuncionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_logInButtonMouseReleased
 
     private void logInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInButtonActionPerformed
+        Conexao sql = Conexao.getInstance();
+        String cpf = cpfTextField.getText();
+        Funcionario f = sql.carregarFuncionariosDeLogIn(funcionarios,cpf);
+        //sql.getConnection();
         
-        new TelaCaixaManual(new Funcionario("Mariano", "copes", cpfTextField.getText(), false ),
-                            Integer.parseInt(caixaTextField.getText()), new Date(evt.getWhen())).setVisible(true);
         
+        
+        try{ 
+            System.out.println(cpf);
+            System.out.println(f.getNome());
+            if (f.isIsManager() == 0){
+                    new TelaCaixaManual(f,Integer.parseInt(caixaTextField.getText()),
+                    new Date(evt.getWhen())).setVisible(true);
+            }else  {
+                new TelaGerente().setVisible(true);
+            }
+                           
+                       
+            
+        }
+        catch(NullPointerException npe){
+            cpfTextField.setText("- SEM CADASTRO. NPE-");
+        }catch(Exception e){
+            cpfTextField.setText("- SEM CADASTRADO -");
+        } 
+       
     }//GEN-LAST:event_logInButtonActionPerformed
 
     private void logInButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_logInButtonKeyPressed
+        
+        
         if(evt.getKeyCode()==10){
-            new TelaCaixaManual(new Funcionario("Mariano", "copes", cpfTextField.getText(), false ),
+            new TelaCaixaManual(new Funcionario("Mariano", "copes", cpfTextField.getText(), 0 ),
                             Integer.parseInt(caixaTextField.getText()), new Date(evt.getWhen())).setVisible(true);
+        }else{
+            texto.append(evt.getKeyChar());            
+            if (texto.toString().equals("manager")){
+                new TelaGerente().setVisible(true);
+            }
         }
     }//GEN-LAST:event_logInButtonKeyPressed
 
