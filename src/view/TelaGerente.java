@@ -9,6 +9,7 @@ import bd.Conexao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import model.*;
 
 /**
  *
@@ -21,6 +22,7 @@ public class TelaGerente extends javax.swing.JFrame {
      */
     public TelaGerente() {
         initComponents();
+        
         
         
     }
@@ -47,6 +49,10 @@ public class TelaGerente extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         areaDeResultado = new javax.swing.JTextArea();
         painelEstoque = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelaEstoque = new javax.swing.JTable();
+        botaoSalvarEstoque = new javax.swing.JButton();
+        botaoCarregarEstoque = new javax.swing.JButton();
         painelCadastroFunc = new javax.swing.JPanel();
         labelNome = new javax.swing.JLabel();
         labelSobrenome = new javax.swing.JLabel();
@@ -124,15 +130,97 @@ public class TelaGerente extends javax.swing.JFrame {
 
         painelEstoque.setBackground(new java.awt.Color(255, 255, 102));
 
+        tabelaEstoque.setAutoCreateRowSorter(true);
+        tabelaEstoque.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Quantidade", "Codigo", "Produto", "Marca", "Valor(cent)"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tabelaEstoque);
+
+        botaoSalvarEstoque.setText("SALVAR ESTOQUE");
+        botaoSalvarEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoSalvarEstoqueMouseClicked(evt);
+            }
+        });
+        botaoSalvarEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarEstoqueActionPerformed(evt);
+            }
+        });
+
+        botaoCarregarEstoque.setText("CARREGAR ESTOQUE");
+        botaoCarregarEstoque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoCarregarEstoqueMouseClicked(evt);
+            }
+        });
+        botaoCarregarEstoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoCarregarEstoqueActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout painelEstoqueLayout = new javax.swing.GroupLayout(painelEstoque);
         painelEstoque.setLayout(painelEstoqueLayout);
         painelEstoqueLayout.setHorizontalGroup(
             painelEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 405, Short.MAX_VALUE)
+            .addGroup(painelEstoqueLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(painelEstoqueLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botaoSalvarEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoCarregarEstoque, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         painelEstoqueLayout.setVerticalGroup(
             painelEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 342, Short.MAX_VALUE)
+            .addGroup(painelEstoqueLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelEstoqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoSalvarEstoque)
+                    .addComponent(botaoCarregarEstoque))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPaneVendas.addTab("Estoque", painelEstoque);
@@ -241,7 +329,7 @@ public class TelaGerente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(relatotiosLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPaneVendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPaneVendas, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -322,13 +410,86 @@ public class TelaGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldNomeActionPerformed
 
     private void fieldSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldSobrenomeActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
+        
     }//GEN-LAST:event_fieldSobrenomeActionPerformed
 
     private void botaoCadastrarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoCadastrarFuncionarioActionPerformed
 
+    private void botaoSalvarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoSalvarEstoqueActionPerformed
+
+    private void botaoSalvarEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSalvarEstoqueMouseClicked
+
+        // TODO add your handling code here:
+//        Integer numero = 2;
+//        System.out.println(tabelaEstoque.getValueAt(2, 2));
+//        tabelaEstoque.setValueAt(tabelaEstoque.getValueAt(0,0), 2, 2);
+//        System.out.println(tabelaEstoque.getValueAt(2, 2));        
+            salvarNovoEstoque();
+            
+    }//GEN-LAST:event_botaoSalvarEstoqueMouseClicked
+
+    private void botaoCarregarEstoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCarregarEstoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoCarregarEstoqueActionPerformed
+
+    private void botaoCarregarEstoqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoCarregarEstoqueMouseClicked
+        // TODO add your handling code here:
+        carregarEstoqueDoBd();
+    }//GEN-LAST:event_botaoCarregarEstoqueMouseClicked
+    
+    private void salvarNovoEstoque(){
+        
+    }
+    
+    private void carregarEstoqueDoBd(){    
+        
+        Conexao sql = Conexao.getInstance();                    
+        int x = 0;
+        int y = 0;
+                
+        try {     
+            // 1-Get a connection  to database
+            //Connection con = DriverManager.getConnection("jdbc:mysql://localhost/supermercado", "poo", "poo");
+           
+            // 2-Create a statement
+            Statement myState = sql.getConnection().createStatement();
+            // 3-Execute SQL query 
+            String query = "SELECT e.quantidade, p.codigo, p.nome, p.marca, p.valor "
+                    + " FROM estoque as e, produtos as p "
+                    + "WHERE e.produto_id = p.codigo ";
+                    
+            ResultSet resultadoQuery = myState.executeQuery(query);                                
+            // 4-Process the result set
+            while (resultadoQuery.next()){
+                tabelaEstoque.setValueAt(resultadoQuery.getString("quantidade"), x, y);
+                y++;
+                tabelaEstoque.setValueAt(resultadoQuery.getString("codigo"), x, y);
+                y++;
+                tabelaEstoque.setValueAt(resultadoQuery.getString("nome"), x, y);
+                y++;
+                tabelaEstoque.setValueAt(resultadoQuery.getString("marca"), x, y);
+                y++;
+                tabelaEstoque.setValueAt(resultadoQuery.getString("valor"), x, y);
+                x++;
+                y=0;
+                        
+             }                                             
+            
+        }catch(SQLException sqle){
+            System.out.println(sqle);
+
+        }catch(Exception e){
+            System.out.println(" erro conexao  ");
+        }
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -367,12 +528,15 @@ public class TelaGerente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaDeResultado;
     private javax.swing.JButton botaoCadastrarFuncionario;
+    private javax.swing.JButton botaoCarregarEstoque;
+    private javax.swing.JButton botaoSalvarEstoque;
     private javax.swing.JButton botonBuscar;
     private javax.swing.JTextField fieldCpf;
     private javax.swing.JTextField fieldManager;
     private javax.swing.JTextField fieldNome;
     private javax.swing.JTextField fieldSobrenome;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPaneVendas;
     private javax.swing.JLabel labeCpf;
@@ -385,6 +549,7 @@ public class TelaGerente extends javax.swing.JFrame {
     private java.awt.Label relatotiosLabel;
     private javax.swing.JSpinner seletorDoCaixa;
     private javax.persistence.EntityManager supermercadoPUEntityManager;
+    private javax.swing.JTable tabelaEstoque;
     private java.awt.Label tituloVendas;
     private java.util.List<view.VendasFechadas> vendasFechadasList;
     private javax.persistence.Query vendasFechadasQuery;
